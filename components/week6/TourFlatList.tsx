@@ -14,13 +14,12 @@ export default function TourFlatList(props: { style?: any; flatListProps?: any }
         { id: "5", title: "Tour in Netherlands", uri: "https://raw.githubusercontent.com/arc6828/myreactnative/master/assets/all/trip-5.jpg" }
     ];
 
-    const renderItem = ({ item, index }: { item: Tour; index: number }) => {
-        console.log(item, index, item.uri);
+    const renderItem = ({ item, index }: any) => {
         return (
-            <View style={{ marginRight: 10 }}>
+            <View style={{ marginRight: 12 }}>
                 <Image source={{ uri: item.uri }} style={styles.image} />
-                <View style={styles.titleWrap}>
-                    <Text style={styles.title}>{item.title}</Text>
+                <View style={styles.overlay}>
+                    <Text numberOfLines={1} style={styles.overlayText}>{item.title}</Text>
                 </View>
             </View>
         );
@@ -28,14 +27,14 @@ export default function TourFlatList(props: { style?: any; flatListProps?: any }
 
     return (
         <View style={style}>
-            <Text style={{ fontSize: 20 }}>Tour FlatList</Text>
+            <Text style={{ fontSize: 20 }}>Tour with FlatList</Text>
             <Text style={{ color: "grey", marginBottom: 8 }}>Let find out what most interesting things</Text>
             <FlatList
                 {...flatListProps}
-                horizontal={true}
+                horizontal
                 data={tours}
-                renderItem={({ item, index }) => renderItem({ item, index })}
-                keyExtractor={item => item.id}
+                renderItem={renderItem}
+                keyExtractor={(item: any) => item.id}
                 showsHorizontalScrollIndicator={false}
             />
         </View>
@@ -43,8 +42,16 @@ export default function TourFlatList(props: { style?: any; flatListProps?: any }
 }
 
 const styles = StyleSheet.create({
-    item: { marginRight: 12, width: 200 },
-    image: { width: 200, height: 120, borderRadius: 8 },
-    titleWrap: { marginTop: 6 },
-    title: { fontSize: 14 }
+    image: { width: 200, height: 120, borderRadius: 12 },
+    overlay: {
+        marginTop: -30,
+        height: 30,
+        width: 200,
+        paddingHorizontal: 10,
+        backgroundColor: 'rgba(0,0,0,0.6)',
+        borderBottomLeftRadius: 12,
+        borderBottomRightRadius: 12,
+        justifyContent: 'center'
+    },
+    overlayText: { color: '#fff', fontSize: 14 }
 });

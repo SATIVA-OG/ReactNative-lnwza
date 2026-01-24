@@ -1,9 +1,12 @@
-import { Link, router } from "expo-router";
-import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Link } from "expo-router";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <ScrollView style={{ flex: 1 }}>
+    <ScrollView
+      style={{ flex: 1 }}
+      contentContainerStyle={{ paddingVertical: 16, paddingHorizontal: 8 }}
+    >
       <View style={styles.container}>
         <Link href="/flexbox/ex01" style={styles.link}>
           <Text style={styles.linkText}>Ex01</Text>
@@ -50,16 +53,33 @@ export default function Index() {
         <Link href="/home" style={styles.link}>
           <Text style={styles.linkText}>Home</Text>
         </Link>
-        <Link href="/flatlistexample" style={styles.link}>
-          <Text style={styles.linkText}>FlatList Example</Text>
+        <Link href="/chart" style={styles.link}>
+          <Text style={styles.linkText}>chart</Text>
+        </Link>
+        <Link href="/your-health" style={styles.link}>
+          <Text style={styles.linkText}>your-health</Text>
+        </Link>
+        <Link href="/todolist" style={styles.link}>
+          <Text style={styles.linkText}>Todo List</Text>
+        </Link>
+        <Link href="/location" style={styles.link}>
+          <Text style={styles.linkText}>location</Text>
+        </Link>
+        <Link href="/location-quiz" style={styles.link}>
+          <Text style={styles.linkText}>location-quiz</Text>
         </Link>
       </View>
     </ScrollView>
   );
 }
-
+//chart
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   link: {
     margin: 10,
     padding: 10,

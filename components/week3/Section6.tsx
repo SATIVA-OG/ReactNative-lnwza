@@ -19,7 +19,7 @@ export default function Section6() {
         incididunt ut labore et…
       </Text>
       <View style={{ marginTop: 16 }}>
-        <Image source={require("@/assets/week3/map.jpg")} />
+        <Image source={require("@/assets/week3/map.jpg")} style={{ width: '100%', height: 200, resizeMode: 'cover' }} />
       </View>
     </View>
   );
