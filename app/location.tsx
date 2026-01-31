@@ -22,32 +22,19 @@ export default function Location() {
       {/* GPS INFO */}
       <View style={{ padding: 10, backgroundColor: "#50E3C2" }}>
         <Text>
-          {location
-            ? new Date(location.timestamp).toString()
-            : "Loading..."}
+          {location ? new Date(location.timestamp).toString() : "Loading..."}
         </Text>
 
-        <Text>
-          Lat: {location ? location.coords.latitude : "-"}
-        </Text>
-        <Text>
-          Lon: {location ? location.coords.longitude : "-"}
-        </Text>
+        <Text>Lat: {location ? location.coords.latitude : "-"}</Text>
+        <Text>Lon: {location ? location.coords.longitude : "-"}</Text>
 
         <Text>
-          Speed:{" "}
-          {location
-            ? (location.coords.speed * 3.6).toFixed(0)
-            : "-"}{" "}
+          Speed: {location ? (location.coords.speed * 3.6).toFixed(0) : "-"}{" "}
           km/h
         </Text>
 
         <Text>
-          Accuracy:{" "}
-          {location
-            ? location.coords.accuracy.toFixed(0)
-            : "-"}{" "}
-          m
+          Accuracy: {location ? location.coords.accuracy.toFixed(0) : "-"} m
         </Text>
       </View>
 

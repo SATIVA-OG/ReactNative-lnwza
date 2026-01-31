@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { View, Dimensions } from "react-native";
-import MapView, { Marker } from "react-native-maps";
 import { FontAwesome } from "@expo/vector-icons";
 import * as Location from "expo-location";
+import React, { useEffect, useState } from "react";
+import { Dimensions, View } from "react-native";
+import MapView, { Marker } from "react-native-maps";
 
 export default function LocationQuiz() {
   const [myLocation, setMyLocation] = useState<any>(null);
@@ -42,12 +42,8 @@ export default function LocationQuiz() {
         style={{ width, height }}
         showsUserLocation={true}
         initialRegion={{
-          latitude: myLocation
-            ? myLocation.coords.latitude
-            : 14.073,
-          longitude: myLocation
-            ? myLocation.coords.longitude
-            : 100.601,
+          latitude: myLocation ? myLocation.coords.latitude : 14.073,
+          longitude: myLocation ? myLocation.coords.longitude : 100.601,
           latitudeDelta: 0.05,
           longitudeDelta: 0.05,
         }}
@@ -62,7 +58,7 @@ export default function LocationQuiz() {
             }}
             title={item.user_id}
           >
-            <FontAwesome name="user" size={22} color="dodgerblue" />
+            <FontAwesome name="user" size={22} color="orange" />
           </Marker>
         ))}
       </MapView>
