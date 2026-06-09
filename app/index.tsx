@@ -1,7 +1,8 @@
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
+  const router = useRouter();
   return (
     <ScrollView
       style={{ flex: 1 }}
@@ -73,6 +74,12 @@ export default function Index() {
         </Link>
         <Link href="/hero" style={styles.link}>
           <Text style={styles.linkText}>Hero</Text>
+        </Link>
+        <Link href="/book" style={styles.link}>
+          <Text style={styles.linkText}>Book</Text>
+        </Link>
+        <Link href="/book-online" style={styles.link}>
+          <Text style={styles.linkText}>Book Online</Text>
         </Link>
       </View>
     </ScrollView>
